@@ -25,9 +25,24 @@ var qAndA = {
         two: ["Odo", "Worf", "Quark", "Data"],
         three: ["Lore", "Borg", "Doran", "Phillip"],
         four: ["James T. Kirk", "Jean-Luc Picard", "Kathryn Janeway", "Christopher Pike"],
-        
+
     },
 }
-function newGame(){
+
+
+function newGame() {
+    numberCorrect = 0;
+    numberIncorrect = 0;
+    remainingQuestions = 10;
+    currentQuestion = 1;
+
+    //div containing game
+    $("#game").show();
+
+    //result of last question answered
+    $("#stats").text("");
+
+    //remove intro
+    $("#start-button").hide();
 
 }

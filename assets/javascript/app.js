@@ -10,6 +10,9 @@ var questionAnswered;
 
 var timeUp = 0;
 
+//takes on a setInterval to be used in a clearInterval
+var timey;
+
 //array of question objs
 
 var qAndA = [
@@ -108,7 +111,7 @@ function resolveChoice(userInput, y) {
 function startTimer(duration, display) {
 
     var timer = duration, minutes, seconds;
-    setInterval(function () {
+     timey = setInterval(function () {
         minutes = parseInt(timer / 60, 10);
         seconds = parseInt(timer % 60, 10);
 
@@ -124,6 +127,8 @@ function startTimer(duration, display) {
         //after two minutes game over
         if (timeUp >= 120) {
             $("#question").text("GAME OVER");
+            //stop clock
+            clearInterval(timey);
         }
     }, 1000);
 }
@@ -138,6 +143,8 @@ function newQuestion(x) {
     //if no more questions game over
     if (currentQuestion === 10) {
         $("#question").text("GAME OVER");
+        //stop clock
+        clearInterval(timey);
 
 
     }

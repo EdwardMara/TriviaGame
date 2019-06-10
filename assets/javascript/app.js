@@ -85,11 +85,24 @@ function resolveChoice(userInput, y) {
     }
 
 }
+//function to start a 2 minute timer and display to html
+function startTimer(duration, display) {
+    var timer = duration, minutes, seconds;
+    setInterval(function () {
+        minutes = parseInt(timer / 60, 10);
+        seconds = parseInt(timer % 60, 10);
 
-function acceptInput() {
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
 
+        display.textContent = minutes + ":" + seconds;
 
+        if (--timer < 0) {
+            timer = duration;
+        }
+    }, 1000);
 }
+
 
 function newQuestion(x) {
     console.log(x);
@@ -102,9 +115,15 @@ function newQuestion(x) {
     $("#answer2").text(questionDisplayed.choice[1]);;
     $("#answer3").text(questionDisplayed.choice[2]);;
     $("#answer4").text(questionDisplayed.choice[3]);;
-
-
+    
+    
 }
+
+window.onload = function () {
+var twoMinutes = 60 * 2,
+display = document.querySelector('#time');
+startTimer(twoMinutes, display);
+};
 
 $(".aButton").on("click", function () {
     var userAnswer = $(this).text();

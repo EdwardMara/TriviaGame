@@ -18,14 +18,35 @@ var qAndA = [
     },
     {
         question: "What is Data's brother's name?",
-        choice: ["Lore", "Lore", "Borg", "Doran", "Phillip"],
+        choice: ["Lore", "Borg", "Doran", "Phillip"],
         answer: 0
     },
     {
         question: "Which Star Trek captain loves baseball?",
         choice: ["James T. Kirk", "Jean-Luc Picard", "Kathryn Janeway", "Benjamin Sisko"],
         answer: 3
+    },
+    {
+        question: "Which Star Trek series has a female chief Engineer?",
+        choice: ["Enterprise","The Next Generation", "Voyager", "Deep Space Nine"],
+        answer: 2
+    },
+    {
+        question: "Which character serves as the head of security for the space station Deep Space Nine?",
+        choice: ["Kira Nerys", "Worf", "Odo", "Jordy"],
+        answer: 2
+    },
+    {
+        question: "Which hostile race coined the phrase 'Resistance is futile.'?",
+        choice: ["Borg", "Klingons", "Cardassians", "Romulans"],
+        answer: 0
+    },
+    {
+        question: "What is Sulu's primary position on the U.S.S. Enterprise?",
+        choice: ["Navigator", "Chief Engineer", "Helmsman", "Science Officer"],
+        answer: 1
     }
+
 ]
 
 function newGame() {

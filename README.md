@@ -12,3 +12,8 @@ Don't forget to include a countdown timer.
 <h3>Notes</h3>
 Initially had seperate arrays for questions, answers and choices. Ran into trouble when attempting to iterate through them and their corresponding answers. Rather than spend longer trying to make that work, switched each question to be its own obj that has choices and an answer index.
 
+Currently has very basic styling.  Needs updating.
+
+<h3>Link to gitHub site</h3>
+<a href="https://edwardmara.github.io/TriviaGame/">edwardmara.github.io</a>
+

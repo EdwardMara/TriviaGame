@@ -4,6 +4,7 @@ var numberIncorrect = 0;
 //start on question 1 (index 0) in qAndA array
 var currentQuestion = 0;
 var questionAnswered;
+var timeUp = 0;
 
 var qAndA = [
     {
@@ -28,7 +29,7 @@ var qAndA = [
     },
     {
         question: "Which Star Trek series has a female chief Engineer?",
-        choice: ["Enterprise","The Next Generation", "Voyager", "Deep Space Nine"],
+        choice: ["Enterprise", "The Next Generation", "Voyager", "Deep Space Nine"],
         answer: 2
     },
     {
@@ -45,30 +46,40 @@ var qAndA = [
         question: "What is Sulu's primary position on the U.S.S. Enterprise?",
         choice: ["Navigator", "Chief Engineer", "Helmsman", "Science Officer"],
         answer: 1
+    },
+    {
+        question: "Which species was the first to discover warp drive?",
+        choice: ["Klingons", "Humans", "Borg", "Vulcans"],
+        answer: 3
+    },
+    {
+        question: "Which actor originally devised the Klingon language?",
+        choice: ["Leonard Nimoy", "James Doohan", "Michael Ansara", "Mark Lenard"],
+        answer: 1
     }
 
 ]
 
-function newGame() {
-    numberCorrect = 0;
-    numberIncorrect = 0;
-    // remainingQuestions = 10;
-    currentQuestion = 1;
+// function newGame() {
+//     numberCorrect = 0;
+//     numberIncorrect = 0;
+//     // remainingQuestions = 10;
+//     currentQuestion = 1;
 
-    //div containing game
-    $("#game").show();
+//     //div containing game
+//     $("#game").show();
 
-    //result of last question answered
-    $("#stats").text("");
+//     //result of last question answered
+//     $("#stats").text("");
 
-    //remove intro
-    // $("#start-button").hide();
-
-
+//     //remove intro
+//     // $("#start-button").hide();
 
 
 
-}
+
+
+
 
 function resolveChoice(userInput, y) {
     var questionDisplayed = qAndA[y];
@@ -87,6 +98,7 @@ function resolveChoice(userInput, y) {
 }
 //function to start a 2 minute timer and display to html
 function startTimer(duration, display) {
+
     var timer = duration, minutes, seconds;
     setInterval(function () {
         minutes = parseInt(timer / 60, 10);
@@ -100,30 +112,44 @@ function startTimer(duration, display) {
         if (--timer < 0) {
             timer = duration;
         }
+        timeUp++;
+        //after two minutes game over
+        if (timeUp >= 120) {
+            $("#question").text("GAME OVER");
+        }
     }, 1000);
 }
 
 
+
 function newQuestion(x) {
     console.log(x);
-    $("#correct-answers").text("Correct Answers: "+numberCorrect);
-    $("#incorrect-answers").text("Wrong Answers: "+numberIncorrect);
+    $("#correct-answers").text("Correct Answers: " + numberCorrect);
+    $("#incorrect-answers").text("Wrong Answers: " + numberIncorrect);
     var questionDisplayed = qAndA[x];
+    //if no more questions game over
+    if (currentQuestion === 10) {
+        $("#question").text("GAME OVER");
+
+
+    }
     //display question and answer choices from specified qandA set
     $("#question").text(questionDisplayed.question);
     $("#answer1").text(questionDisplayed.choice[0]);;
     $("#answer2").text(questionDisplayed.choice[1]);;
     $("#answer3").text(questionDisplayed.choice[2]);;
     $("#answer4").text(questionDisplayed.choice[3]);;
-    
-    
+
+
 }
 
 window.onload = function () {
-var twoMinutes = 60 * 2,
-display = document.querySelector('#time');
-startTimer(twoMinutes, display);
+    var twoMinutes = 60 * 2,
+        display = document.querySelector('#time');
+    startTimer(twoMinutes, display);
+    // timerBackground();
 };
+
 
 $(".aButton").on("click", function () {
     var userAnswer = $(this).text();
@@ -133,8 +159,11 @@ $(".aButton").on("click", function () {
 });
 
 
+
 newQuestion(currentQuestion);
 
 
 
-4
+
+
+

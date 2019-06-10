@@ -1,15 +1,23 @@
 // $(document).ready(function () {
+//how many questions you got correct
 var numberCorrect = 0;
+//how many you did not get correct
 var numberIncorrect = 0;
 //start on question 1 (index 0) in qAndA array
 var currentQuestion = 0;
+//once hits 10 game is over
 var questionAnswered;
+
 var timeUp = 0;
 
+//array of question objs
+
 var qAndA = [
-    {
+    {   //question that will appear
         question: "Which Star Trek captain has an artificial heart?",
+        //multiple choices
         choice: ["James T. Kirk", "Jean-Luc Picard", "Kathryn Janeway", "Benjamin Sisko"],
+        //answer key by index 
         answer: 1
     },
     {

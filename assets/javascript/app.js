@@ -58,7 +58,7 @@ function resolveChoice(userInput, y) {
         return true;
     } else {
         console.log("incorrect answer");
-        numberIncorrect--;
+        numberIncorrect++;
         currentQuestion++;
         return false;
     }
@@ -72,6 +72,8 @@ function acceptInput() {
 
 function newQuestion(x) {
     console.log(x);
+    $("#correct-answers").text("Correct Answers: "+numberCorrect);
+    $("#incorrect-answers").text("Wrong Answers: "+numberIncorrect);
     var questionDisplayed = qAndA[x];
     //display question and answer choices from specified qandA set
     $("#question").text(questionDisplayed.question);
@@ -95,3 +97,4 @@ newQuestion(currentQuestion);
 
 
 
+4
